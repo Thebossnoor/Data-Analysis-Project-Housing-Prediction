@@ -1,74 +1,87 @@
-# Data Project Template
+# 🏠 Housing Price Prediction
 
-<a target="_blank" href="https://datalumina.com/">
-    <img src="https://img.shields.io/badge/Datalumina-Project%20Template-2856f7" alt="Datalumina Project" />
-</a>
+A machine learning project that predicts house sale prices based on features like size, location, and quality.
 
-## Cookiecutter Data Science
-This project template is a simplified version of the [Cookiecutter Data Science](https://cookiecutter-data-science.drivendata.org) template, created to suit the needs of Datalumina and made available as a GitHub template.
+---
 
-## Adjusting .gitignore
+## 📋 Overview
 
-Ensure you adjust the `.gitignore` file according to your project needs. For example, since this is a template, the `/data/` folder is commented out and data will not be exlucded from source control:
+Using the Ames Housing Dataset, this project builds a model that can predict the price of a house within ~$17,000 of the actual sale price.
 
-```plaintext
-# exclude data from source control by default
-# /data/
+This was built as a beginner machine learning project to learn the basics of data science, including data cleaning, exploratory data analysis, and model training.
+
+---
+
+## 📁 Project Structure
+
+```
+housing-prediction/
+│
+├── data/
+│   ├── train.csv         # Training data
+│   └── test.csv          # Test data
+│
+├── notebooks/
+│   └── eda.ipynb         # Main notebook (EDA + model)
+│
+├── requirements.txt      # Dependencies
+└── README.md
 ```
 
-Typically, you want to exclude this folder if it contains either sensitive data that you do not want to add to version control or large files.
+---
 
-## Duplicating the .env File
-To set up your environment variables, you need to duplicate the `.env.example` file and rename it to `.env`. You can do this manually or using the following terminal command:
+## 🔧 How to Run
 
+**1. Clone the repository**
 ```bash
-cp .env.example .env # Linux, macOS, Git Bash, WSL
-copy .env.example .env # Windows Command Prompt
+git clone https://github.com/yourusername/housing-prediction.git
+cd housing-prediction
 ```
 
-This command creates a copy of `.env.example` and names it `.env`, allowing you to configure your environment variables specific to your setup.
-
-
-## Project Organization
-
+**2. Install dependencies**
+```bash
+pip install -r requirements.txt
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── README.md          <- The top-level README for developers using this project
-├── data
-│   ├── external       <- Data from third party sources
-│   ├── interim        <- Intermediate data that has been transformed
-│   ├── processed      <- The final, canonical data sets for modeling
-│   └── raw            <- The original, immutable data dump
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-└── src                         <- Source code for this project
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    │    
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    ├── plots.py                <- Code to create visualizations 
-    │
-    └── services                <- Service classes to connect with external platforms, tools, or APIs
-        └── __init__.py 
+
+**3. Download the dataset**
+
+Download `train.csv` and `test.csv` from [Kaggle](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data) and place them in the `data/` folder.
+
+**4. Open the notebook**
+```bash
+jupyter notebook
 ```
+
+Then open `notebooks/eda.ipynb` and run all cells.
+
+---
+
+## 📊 Results
+
+| Model | Average Prediction Error |
+|---|---|
+| Linear Regression | ~$825,000 (too high) |
+| Random Forest | **~$17,600** ✅ |
+
+The Random Forest model predicts house prices within approximately **$17,600** of the actual sale price, which is roughly 10% of the average house price of $180,000.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Python**
+- **Pandas** — data loading and cleaning
+- **Seaborn / Matplotlib** — data visualization
+- **Scikit-learn** — machine learning model
+
+---
+
+## 📚 Dataset
+
+[Ames Housing Dataset](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data) from Kaggle. Contains 1,460 houses with 79 features each.
+
+---
+
+## 👤 Author
+
+Your Name — [GitHub](https://github.com/thebossnoor)
